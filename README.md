@@ -121,3 +121,44 @@ const element = {
     },
 }
 ```
+
+## Class Component
+
+1. Class Component is a statefull component and more powerfull then functional component.
+2. Must extend `Component` class component and use like `React.Component`.
+3. Automatic call `render` method.
+4. Must return JSX from `render` method.
+5. `Component` super class has a property called `props` which is an object and takes all the parameters passing in my class component.
+6. So, accessing my props like `this.props.value` in my class component.
+7. Never change ```props``` inside the components.
+8. React component will re-render whenever ```props``` change.
+9. If I change props then component will re-render for infinity times.
+10. If I use some nested components and changing ```props``` of parent component so that all the children components and parent component will re-render after changing the  ```props``` and goes to infinity loop or infinity times for re-rendering.
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+export class FirstComponent extends React.Component {
+    render() {
+        return (
+            <div>
+                <h2>Hello Class Component, and Hello {this.props.name}</h2>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(
+    <React.StrictMode>
+        <FirstComponent name={'Prince'} />
+    </React.StrictMode>,
+    document.getElementById('root')
+)
+```
+
+Output:
+
+```js
+Hello Class Component, And Hello Prince
+```
